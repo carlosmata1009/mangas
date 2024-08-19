@@ -7,19 +7,53 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		178874ED2C7236E500889B0C /*  MangaDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178874EC2C7236E500889B0C /*  MangaDetail.swift */; };
+		178874F12C734D4600889B0C /* PortadaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178874F02C734D4600889B0C /* PortadaView.swift */; };
+		178874F32C73ACCF00889B0C /* HorizontalScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178874F22C73ACCF00889B0C /* HorizontalScrollView.swift */; };
+		179E2A262C6B81CE00FAF2C8 /* MangaItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179E2A252C6B81CE00FAF2C8 /* MangaItem.swift */; };
+		179E2A2A2C6B90BA00FAF2C8 /* NetworkDataTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179E2A292C6B90BA00FAF2C8 /* NetworkDataTest.swift */; };
+		179E2A2D2C6C9EA600FAF2C8 /* NetworkProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179E2A2C2C6C9EA600FAF2C8 /* NetworkProtocol.swift */; };
+		179E2A2F2C6CB07E00FAF2C8 /* MangaVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179E2A2E2C6CB07E00FAF2C8 /* MangaVM.swift */; };
 		17CE26292C6A52C600847BF6 /* MangasApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CE26282C6A52C600847BF6 /* MangasApp.swift */; };
 		17CE262B2C6A52C600847BF6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CE262A2C6A52C600847BF6 /* ContentView.swift */; };
 		17CE262D2C6A52C700847BF6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17CE262C2C6A52C700847BF6 /* Assets.xcassets */; };
 		17CE26312C6A52C700847BF6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17CE26302C6A52C700847BF6 /* Preview Assets.xcassets */; };
+		17CE263A2C6A536A00847BF6 /* Manga.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CE26392C6A536A00847BF6 /* Manga.swift */; };
+		17CE263C2C6A55EA00847BF6 /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CE263B2C6A55EA00847BF6 /* Genre.swift */; };
+		17CE263E2C6A564600847BF6 /* Author.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CE263D2C6A564600847BF6 /* Author.swift */; };
+		17CE26402C6A568100847BF6 /* Demographic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CE263F2C6A568100847BF6 /* Demographic.swift */; };
+		17CE26422C6A56F400847BF6 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CE26412C6A56F400847BF6 /* Theme.swift */; };
+		17DEDD262C6A5BAD00A80E5E /* URLRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DEDD252C6A5BAD00A80E5E /* URLRequest.swift */; };
+		17DEDD282C6A5D2E00A80E5E /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DEDD272C6A5D2E00A80E5E /* NetworkService.swift */; };
+		17F8AC672C6F656F007FD1D0 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F8AC662C6F656F007FD1D0 /* HomeView.swift */; };
+		17F8AC6D2C6F66C0007FD1D0 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F8AC6C2C6F66C0007FD1D0 /* CategoryView.swift */; };
+		17F8AC702C6F66E1007FD1D0 /* FavoriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F8AC6F2C6F66E1007FD1D0 /* FavoriteView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		178874EC2C7236E500889B0C /*  MangaDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = " MangaDetail.swift"; sourceTree = "<group>"; };
+		178874F02C734D4600889B0C /* PortadaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortadaView.swift; sourceTree = "<group>"; };
+		178874F22C73ACCF00889B0C /* HorizontalScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalScrollView.swift; sourceTree = "<group>"; };
+		179E2A252C6B81CE00FAF2C8 /* MangaItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangaItem.swift; sourceTree = "<group>"; };
+		179E2A292C6B90BA00FAF2C8 /* NetworkDataTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataTest.swift; sourceTree = "<group>"; };
+		179E2A2C2C6C9EA600FAF2C8 /* NetworkProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProtocol.swift; sourceTree = "<group>"; };
+		179E2A2E2C6CB07E00FAF2C8 /* MangaVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangaVM.swift; sourceTree = "<group>"; };
 		17CE26252C6A52C600847BF6 /* Mangas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mangas.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17CE26282C6A52C600847BF6 /* MangasApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangasApp.swift; sourceTree = "<group>"; };
 		17CE262A2C6A52C600847BF6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		17CE262C2C6A52C700847BF6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		17CE262E2C6A52C700847BF6 /* Mangas.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Mangas.entitlements; sourceTree = "<group>"; };
 		17CE26302C6A52C700847BF6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		17CE26392C6A536A00847BF6 /* Manga.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manga.swift; sourceTree = "<group>"; };
+		17CE263B2C6A55EA00847BF6 /* Genre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
+		17CE263D2C6A564600847BF6 /* Author.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Author.swift; sourceTree = "<group>"; };
+		17CE263F2C6A568100847BF6 /* Demographic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Demographic.swift; sourceTree = "<group>"; };
+		17CE26412C6A56F400847BF6 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		17DEDD252C6A5BAD00A80E5E /* URLRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequest.swift; sourceTree = "<group>"; };
+		17DEDD272C6A5D2E00A80E5E /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		17F8AC662C6F656F007FD1D0 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		17F8AC6C2C6F66C0007FD1D0 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
+		17F8AC6F2C6F66E1007FD1D0 /* FavoriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +67,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		179E2A242C6B81AF00FAF2C8 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				179E2A252C6B81CE00FAF2C8 /* MangaItem.swift */,
+				178874F02C734D4600889B0C /* PortadaView.swift */,
+				178874F22C73ACCF00889B0C /* HorizontalScrollView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		179E2A2B2C6C9E5F00FAF2C8 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				179E2A2C2C6C9EA600FAF2C8 /* NetworkProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		17CE261C2C6A52C600847BF6 = {
 			isa = PBXGroup;
 			children = (
@@ -52,8 +104,13 @@
 		17CE26272C6A52C600847BF6 /* Mangas */ = {
 			isa = PBXGroup;
 			children = (
+				17DEDD242C6A5B9E00A80E5E /* Extension */,
+				17CE26432C6A57DC00847BF6 /* ViewModel */,
+				17DEDD292C6B6C1A00A80E5E /* Services */,
+				17CE26382C6A533100847BF6 /* Models */,
+				17F8AC652C6F6558007FD1D0 /* View */,
+				179E2A242C6B81AF00FAF2C8 /* Components */,
 				17CE26282C6A52C600847BF6 /* MangasApp.swift */,
-				17CE262A2C6A52C600847BF6 /* ContentView.swift */,
 				17CE262C2C6A52C700847BF6 /* Assets.xcassets */,
 				17CE262E2C6A52C700847BF6 /* Mangas.entitlements */,
 				17CE262F2C6A52C700847BF6 /* Preview Content */,
@@ -65,8 +122,90 @@
 			isa = PBXGroup;
 			children = (
 				17CE26302C6A52C700847BF6 /* Preview Assets.xcassets */,
+				179E2A292C6B90BA00FAF2C8 /* NetworkDataTest.swift */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		17CE26382C6A533100847BF6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				17CE26392C6A536A00847BF6 /* Manga.swift */,
+				17CE263B2C6A55EA00847BF6 /* Genre.swift */,
+				17CE263D2C6A564600847BF6 /* Author.swift */,
+				17CE263F2C6A568100847BF6 /* Demographic.swift */,
+				17CE26412C6A56F400847BF6 /* Theme.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		17CE26432C6A57DC00847BF6 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				179E2A2E2C6CB07E00FAF2C8 /* MangaVM.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		17DEDD242C6A5B9E00A80E5E /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				17DEDD252C6A5BAD00A80E5E /* URLRequest.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		17DEDD292C6B6C1A00A80E5E /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				179E2A2B2C6C9E5F00FAF2C8 /* Protocols */,
+				17DEDD272C6A5D2E00A80E5E /* NetworkService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		17F8AC652C6F6558007FD1D0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				17F8AC682C6F668B007FD1D0 /* TabViews */,
+				17CE262A2C6A52C600847BF6 /* ContentView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		17F8AC682C6F668B007FD1D0 /* TabViews */ = {
+			isa = PBXGroup;
+			children = (
+				17F8AC6B2C6F66B1007FD1D0 /* FavoriteViews */,
+				17F8AC6A2C6F66A4007FD1D0 /* CategoryViews */,
+				17F8AC692C6F6699007FD1D0 /* HomeViews */,
+			);
+			path = TabViews;
+			sourceTree = "<group>";
+		};
+		17F8AC692C6F6699007FD1D0 /* HomeViews */ = {
+			isa = PBXGroup;
+			children = (
+				17F8AC662C6F656F007FD1D0 /* HomeView.swift */,
+				178874EC2C7236E500889B0C /*  MangaDetail.swift */,
+			);
+			path = HomeViews;
+			sourceTree = "<group>";
+		};
+		17F8AC6A2C6F66A4007FD1D0 /* CategoryViews */ = {
+			isa = PBXGroup;
+			children = (
+				17F8AC6C2C6F66C0007FD1D0 /* CategoryView.swift */,
+			);
+			path = CategoryViews;
+			sourceTree = "<group>";
+		};
+		17F8AC6B2C6F66B1007FD1D0 /* FavoriteViews */ = {
+			isa = PBXGroup;
+			children = (
+				17F8AC6F2C6F66E1007FD1D0 /* FavoriteView.swift */,
+			);
+			path = FavoriteViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,8 +278,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17CE263A2C6A536A00847BF6 /* Manga.swift in Sources */,
+				17F8AC702C6F66E1007FD1D0 /* FavoriteView.swift in Sources */,
+				178874ED2C7236E500889B0C /*  MangaDetail.swift in Sources */,
+				179E2A2F2C6CB07E00FAF2C8 /* MangaVM.swift in Sources */,
+				178874F32C73ACCF00889B0C /* HorizontalScrollView.swift in Sources */,
+				17CE26402C6A568100847BF6 /* Demographic.swift in Sources */,
+				178874F12C734D4600889B0C /* PortadaView.swift in Sources */,
+				17F8AC672C6F656F007FD1D0 /* HomeView.swift in Sources */,
 				17CE262B2C6A52C600847BF6 /* ContentView.swift in Sources */,
+				17F8AC6D2C6F66C0007FD1D0 /* CategoryView.swift in Sources */,
+				179E2A2A2C6B90BA00FAF2C8 /* NetworkDataTest.swift in Sources */,
+				17DEDD282C6A5D2E00A80E5E /* NetworkService.swift in Sources */,
 				17CE26292C6A52C600847BF6 /* MangasApp.swift in Sources */,
+				17CE263C2C6A55EA00847BF6 /* Genre.swift in Sources */,
+				17CE263E2C6A564600847BF6 /* Author.swift in Sources */,
+				17CE26422C6A56F400847BF6 /* Theme.swift in Sources */,
+				179E2A2D2C6C9EA600FAF2C8 /* NetworkProtocol.swift in Sources */,
+				179E2A262C6B81CE00FAF2C8 /* MangaItem.swift in Sources */,
+				17DEDD262C6A5BAD00A80E5E /* URLRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
