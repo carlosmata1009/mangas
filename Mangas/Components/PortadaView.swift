@@ -9,33 +9,20 @@ import SwiftUI
 
 struct PortadaView: View {
   @Binding var images: [Manga]
+      
+  let timer = Timer.publish(every: 6, on: .main, in: .common).autoconnect()
   var body: some View {
     
       ScrollView(.horizontal){
         HStack{
           ForEach(images){ image in
-            asyncImage(url: image.cleanedURLMainPicture)
+            CustomAsyncImage(url: image.cleanedURLMainPicture, width: 400, height: 550)
+              .background(.ultraThinMaterial)
+              .opacity(0.7)
           }
         }
       }
       Spacer()
-  }
-  
-  private func asyncImage(url: String)-> some View{
-    AsyncImage(url: URL(string: url)){ phase in
-      switch phase{
-        case .failure:
-          Image(systemName: "house")
-        case .success(let image):
-          image
-            .resizable()
-            .scaledToFit()
-            .frame(maxWidth: 400, maxHeight: 550)
-            .shadow(radius: 2)
-        default:
-          ProgressView()
-      }
-    }
   }
 }
 

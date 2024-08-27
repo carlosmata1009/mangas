@@ -14,4 +14,9 @@ protocol NetworkProtocol{
   func getDemographicMangaList(page: Int?, per: Int?) async throws -> Items
   func getAuthorMangaList(page: Int?, per: Int?) async throws -> Items
   func getMangaList(page: Int?, per: Int?) async throws -> Items
+  func getGenres() async throws -> [String]
+  func getDemographics() async throws -> [String]
+  func getThemes() async throws -> [String]
+  func getAuthors() async throws -> [Author]
+  func getMangasByCategory(category: String, subcategory: String, page: Int?, per: Int?) async throws -> Items
 }

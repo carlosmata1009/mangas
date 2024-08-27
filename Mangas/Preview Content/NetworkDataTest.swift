@@ -6,8 +6,104 @@
 //
 
 import Foundation
-
+import SwiftData
 class MockDataTest: NetworkProtocol{
+  func getMangasByCategory(category: String, subcategory: String, page: Int?, per: Int?) async throws -> Items {
+    return Items(items: Items.itemsTest.items , metadata: Items.itemsTest.metadata)
+  }
+  
+  func getThemes() async throws -> [String] {
+    return ["Gore",
+            "Military",
+            "Mythology",
+            "Psychological",
+            "Historical",
+            "Samurai",
+            "Romantic Subtext",
+            "School",
+            "Adult Cast",
+            "Parody",
+            "Super Power",
+            "Team Sports",
+            "Delinquents",
+            "Workplace",
+            "Survival",
+            "Childcare",
+            "Iyashikei",
+            "Reincarnation",
+            "Showbiz",
+            "Anthropomorphic",
+            "Love Polygon",
+            "Music",
+            "Mecha",
+            "Combat Sports",
+            "Isekai",
+            "Gag Humor",
+            "Crossdressing",
+            "Reverse Harem",
+            "Martial Arts",
+            "Visual Arts",
+            "Harem",
+            "Otaku Culture",
+            "Time Travel",
+            "Video Game",
+            "Strategy Game",
+            "Vampire",
+            "Mahou Shoujo",
+            "High Stakes Game",
+            "CGDCT",
+            "Organized Crime",
+            "Detective",
+            "Performing Arts",
+            "Medical",
+            "Space",
+            "Memoir",
+            "Villainess",
+            "Racing",
+            "Pets",
+            "Magical Sex Shift",
+            "Educational",
+            "Idols (Female)",
+            "Idols (Male)"
+    ]
+  }
+  
+  func getAuthors() async throws -> [Author] {
+    return []
+  }
+  
+  func getDemographics() async throws -> [String] {
+    return ["Seinen",
+            "Shounen",
+            "Shoujo",
+            "Josei",
+            "Kids"]
+  }
+  
+  func getGenres() async throws -> [String] {
+    return ["Action",
+            "Adventure",
+            "Award Winning",
+            "Drama",
+            "Fantasy",
+            "Horror",
+            "Supernatural",
+            "Mystery",
+            "Slice of Life",
+            "Comedy",
+            "Sci-Fi",
+            "Suspense",
+            "Sports",
+            "Ecchi",
+            "Romance",
+            "Girls Love",
+            "Boys Love",
+            "Gourmet",
+            "Erotica",
+            "Hentai",
+            "Avant Garde"]
+  }
+  
   func getBestMangaList(page: Int?, per: Int?) async throws -> Items {
     Items(items: Items.itemsTest.items, metadata: Items.itemsTest.metadata)
   }
@@ -31,11 +127,6 @@ class MockDataTest: NetworkProtocol{
   func getMangaList(page: Int?, per: Int?) async throws -> Items {
     Items(items: Items.itemsTest.items, metadata: Items.itemsTest.metadata)
   }
-  
-  func getManga() async throws -> Manga{
-    return Items.itemsTest.items.first!
-  }
-  
 }
 extension Items{
   static let itemsTest: Items = {
@@ -606,14 +697,92 @@ extension Items{
     ]
 }
 """
-    
     let decoder = JSONDecoder()
-
     do {
-      let items = try decoder.decode(Items.self, from: JSONTest.data(using: .utf8)!)
-        return items
+      let ite = try decoder.decode(Items.self, from: JSONTest.data(using: .utf8)!)
+        return ite
+    }catch{
+      fatalError()
+    }
+}()
+  static let itemTest: Manga = {
+    let JSON =
+    """
+        {
+            "title": "Monster",
+            "background": "Monster won the Grand Prize at the 3rd annual Tezuka Osamu Cultural Prize in 1999, as well as the 46th Shogakukan Manga Award in the General category in 2000. The series was published in English by VIZ Media under the VIZ Signature imprint from February 21, 2006 to December 16, 2008, and again in 2-in-1 omnibuses (subtitled The Perfect Edition) from July 15, 2014 to July 19, 2016. The manga was also published in Brazilian Portuguese by Panini Comics/Planet Manga from June 2012 to April 2015, in Polish by Hanami from March 2014 to February 2017, in Spain by Planeta Cómic from June 16, 2009 to September 21, 2010, and in Argentina by LARP Editores.",
+            "genres": [
+                {
+                    "genre": "Award Winning",
+                    "id": "4C13067F-96FF-4F14-A1C0-B33215F24E0B"
+                },
+                {
+                    "genre": "Drama",
+                    "id": "4312867C-1359-494A-AC46-BADFD2E1D4CD"
+                },
+                {
+                    "genre": "Mystery",
+                    "id": "97C8609D-856C-419E-A4ED-E13A5C292663"
+                }
+            ],
+            "themes": [
+                {
+                    "id": "4394C99F-615B-494A-929E-356A342A95B8",
+                    "theme": "Psychological"
+                },
+                {
+                    "id": "840867E7-6C60-49CE-8C47-A99AA71A2113",
+                    "theme": "Adult Cast"
+                }
+            ],
+            "volumes": 18,
+            "sypnosis": "Kenzou Tenma, a renowned Japanese neurosurgeon working in post-war Germany, faces a difficult choice: to operate on Johan Liebert, an orphan boy on the verge of death, or on the mayor of Düsseldorf. In the end, Tenma decides to gamble his reputation by saving Johan, effectively leaving the mayor for dead.As a consequence of his actions, hospital director Heinemann strips Tenma of his position, and Heinemann's daughter Eva breaks off their engagement. Disgraced and shunned by his colleagues, Tenma loses all hope of a successful career—that is, until the mysterious killing of Heinemann gives him another chance.Nine years later, Tenma is the head of the surgical department and close to becoming the director himself. Although all seems well for him at first, he soon becomes entangled in a chain of gruesome murders that have taken place throughout Germany. The culprit is a monster—the same one that Tenma saved on that fateful day nine years ago.[Written by MAL Rewrite]",
+            "status": "finished",
+            "url": "https://myanimelist.net/manga/1/Monster",
+            "id": 1,
+            "mainPicture": "https://cdn.myanimelist.net/images/manga/3/258224l.jpg",
+            "demographics": [
+                {
+                    "id": "CE425E7E-C7CD-42DB-ADE3-1AB9AD16386D",
+                    "demographic": "Seinen"
+                }
+            ],
+            "score": 9.15,
+            "authors": [
+                {
+                    "firstName": "Naoki",
+                    "id": "54BE174C-2FE9-42C8-A842-85D291A6AEDD",
+                    "lastName": "Urasawa",
+                    "role": "Story & Art"
+                }
+            ],
+            "titleEnglish": "Monster",
+            "startDate": "1994-12-05T00:00:00Z",
+            "titleJapanese": "MONSTER",
+            "endDate": "2001-12-20T00:00:00Z",
+            "chapters": 162
+        }
+    """
+    let decoder = JSONDecoder()
+    do {
+      let manga = try decoder.decode(Manga.self, from: JSON.data(using: .utf8)!)
+        return manga
     } catch {
         fatalError("Failed to decode JSON: \(error)")
     }
-}()
+  }()
+}
+extension ModelContainer {
+    static let preview: ModelContainer = {
+        let configuration = ModelConfiguration(isStoredInMemoryOnly: true)
+        let container = try! ModelContainer(for: MangaCategory.self, configurations: configuration)
+        Task { @MainActor in
+          let item = MangaCategory(name: "All Mangas", mangas: Items.itemsTest.items)
+            container.mainContext.insert(item)
+
+            let item2 = MangaCategory(name: "Best Mangas", mangas: Items.itemsTest.items)
+            container.mainContext.insert(item2)
+        }
+        return container
+    }()
 }

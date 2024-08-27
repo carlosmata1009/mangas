@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct HorizontalScrollView: View {
-  @Binding var mangas: [Manga]
+  var mangas: [Manga]
   var mangasCategory: String
   
   var body: some View {
@@ -23,7 +23,7 @@ struct HorizontalScrollView: View {
             NavigationLink{
               MangaDetail(manga: manga)
             }label: {
-              MangaItem(manga: manga)
+              MangaScrollItemView(manga: manga)
             }
           }
         }.padding(.leading, 6)
@@ -33,6 +33,12 @@ struct HorizontalScrollView: View {
 }
 
 #Preview {
-  HorizontalScrollView(mangas: .constant(Items.itemsTest.items), mangasCategory: "All Mangas")
+  ZStack{
+    Color("BackgroundColor")
+      .ignoresSafeArea()
+    VStack{
+      HorizontalScrollView(mangas: Items.itemsTest.items, mangasCategory: "All Mangas")
+    }
+  }
 }
 

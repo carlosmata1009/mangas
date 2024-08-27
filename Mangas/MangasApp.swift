@@ -6,12 +6,19 @@
 //
 
 import SwiftUI
-
+import SwiftData
 @main
 struct MangasApp: App {
-    var body: some Scene {
-        WindowGroup {
-          ContentView()
-        }
+  init() {
+    UITabBar.appearance().unselectedItemTintColor = UIColor.lightGray
+    UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).backgroundColor = UIColor.white
+    UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+  }
+
+  var body: some Scene {
+    WindowGroup {
+      ContentView()
     }
+    .modelContainer(for: [MangaCategory.self, Manga.self])
+  }
 }

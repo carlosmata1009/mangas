@@ -19,7 +19,17 @@ extension URLRequest{
 let api = URL(string: "https://mymanga-acacademy-5607149ebe3d.herokuapp.com/list/")!
 
 extension URL{
-  
+  static func getMangaByCategory(category: String, subCategory: String, page: Int?, per: Int?) async throws -> URL{
+    let url = "\(api)mangaBy\(category)/\(subCategory)"
+    guard let url = URL(string: url)else{
+      throw URLError(.badURL)
+    }
+    return url
+  }
+  static let getAuthors = api.appending(path: "authors")
+  static let getThemeCategories = api.appending(path: "themes")
+  static let getDemographicCategories = api.appending(path:"demographics")
+  static let getGenreCategories = api.appending(path: "genres")
   static func getMangaList(page: Int? = nil, per: Int? = 10)async throws-> URL{
     if let page = page, let per = per{
       let query = "page=\(page)&per=\(per)"
@@ -108,5 +118,4 @@ extension URL{
       return url
     }
   }
-  
 }
