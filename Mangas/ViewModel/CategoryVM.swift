@@ -16,15 +16,22 @@ class CategoryVM{
   var mangaAuthors: [Author] = []
   var mangaThemes: [String] = []
   var mangas: [Manga] = []
+  var totalMangas = 0
+  var numberPages = 0
+  var page: Int = 1
+  var per: Int = 12
   
   init(networkService: NetworkProtocol = NetworkService.shared) {
     self.networkService = networkService
   }
   
-  func loadMangasBySubCategory(category: String, subCategory: String, page: Int?, per: Int?)async throws{
+  func loadMangasBySubCategory(category: String, subCategory: String)async throws{
     Task{
       do{
         mangas = try await networkService.getMangasByCategory(category: category, subcategory: subCategory, page: page, per: per).items
+        totalMangas = try await networkService.getMangasByCategory(category: category, subcategory: subCategory, page: page, per: per).metadata.total
+        print(totalMangas)
+        numberPages = Int(ceil(Double(totalMangas) / Double(per)))
       }catch{
         print(error)
       }

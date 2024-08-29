@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftData
+import SwiftUI
 class MockDataTest: NetworkProtocol{
   func getMangasByCategory(category: String, subcategory: String, page: Int?, per: Int?) async throws -> Items {
     return Items(items: Items.itemsTest.items , metadata: Items.itemsTest.metadata)
@@ -771,18 +772,4 @@ extension Items{
         fatalError("Failed to decode JSON: \(error)")
     }
   }()
-}
-extension ModelContainer {
-    static let preview: ModelContainer = {
-        let configuration = ModelConfiguration(isStoredInMemoryOnly: true)
-        let container = try! ModelContainer(for: MangaCategory.self, configurations: configuration)
-        Task { @MainActor in
-          let item = MangaCategory(name: "All Mangas", mangas: Items.itemsTest.items)
-            container.mainContext.insert(item)
-
-            let item2 = MangaCategory(name: "Best Mangas", mangas: Items.itemsTest.items)
-            container.mainContext.insert(item2)
-        }
-        return container
-    }()
 }

@@ -33,11 +33,13 @@ struct HorizontalScrollView: View {
 }
 
 #Preview {
-  ZStack{
-    Color("BackgroundColor")
-      .ignoresSafeArea()
-    VStack{
-      HorizontalScrollView(mangas: Items.itemsTest.items, mangasCategory: "All Mangas")
+  NavigationStack{
+    ZStack{
+      Color("BackgroundColor")
+        .ignoresSafeArea()
+      VStack{
+        HorizontalScrollView(mangas: Items.itemsTest.items, mangasCategory: "All Mangas")
+      }
     }
   }
 }

@@ -31,11 +31,21 @@ struct CustomAsyncImage: View{
           .frame(width: width, height: height)
           .shadow(radius: 2)
       default:
-        ProgressView()
+        RoundedRectangle(cornerRadius: 8)
+          .frame(width: width, height: height)
+          .foregroundStyle(.gray)
+          .opacity(0.2)
+          .shadow(radius: 2)
+          .overlay{
+            VStack{
+              ProgressView()
+                .tint(.white)
+            }
+          }
       }
     }
   }
 }
 #Preview{
-  CustomAsyncImage(url:  String(Items.itemsTest.items.first?.cleanedURLMainPicture ?? "")  , width: 90, height: 120)
+  CustomAsyncImage(url:  String(Items.itemTest.cleanedURLMainPicture), width: 90, height: 120)
 }

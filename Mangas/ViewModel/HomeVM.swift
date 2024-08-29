@@ -20,21 +20,22 @@ class HomeVM{
   var mangasGenre: [Manga] = []
   
   init(networkService: NetworkProtocol = NetworkService.shared) {
-    self.networkService = networkService
+          self.networkService = networkService
   }
   
   func loadListHome()async throws{
     Task{
       do{
-        mangasAll = try await networkService.getMangaList(page: nil, per: 15).items
-        mangasBest = try await networkService.getBestMangaList(page: nil, per: 15).items
-        mangasTheme = try await networkService.getThemeMangaList(page: nil, per: 15).items
-        mangasDemographic = try await networkService.getDemographicMangaList(page: nil, per: 15).items
-        mangasAuthor = try await networkService.getAuthorMangaList(page: nil, per: 15).items
-        mangasGenre = try await networkService.getGenreMangaList(page: nil, per: 15).items
+        mangasAll = try await networkService.getMangaList(page: 1, per: 15).items.sorted()
+        mangasBest = try await networkService.getBestMangaList(page: nil, per: 15).items.sorted(by: Manga.byScore)
+        mangasTheme = try await networkService.getThemeMangaList(page: nil, per: 15).items.sorted()
+        mangasDemographic = try await networkService.getDemographicMangaList(page: nil, per: 15).items.sorted()
+        mangasAuthor = try await networkService.getAuthorMangaList(page: nil, per: 15).items.sorted()
+        mangasGenre = try await networkService.getGenreMangaList(page: nil, per: 15).items.sorted()
       }catch{
         print(error)
       }
     }
   }
 }
+

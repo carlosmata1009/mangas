@@ -2,30 +2,96 @@
 //  PortadaView.swift
 //  Mangas
 //
-//  Created by Carlos Mata on 8/19/24.
+//  Created by Carlos Mata on 8/28/24.
 //
 
 import SwiftUI
 
 struct PortadaView: View {
-  @Binding var images: [Manga]
-      
-  let timer = Timer.publish(every: 6, on: .main, in: .common).autoconnect()
+  @State var indexOfImage: Int = 0
+  
   var body: some View {
-    
-      ScrollView(.horizontal){
-        HStack{
-          ForEach(images){ image in
-            CustomAsyncImage(url: image.cleanedURLMainPicture, width: 400, height: 550)
-              .background(.ultraThinMaterial)
-              .opacity(0.7)
+    ZStack{
+      Color("BackgroundColor")
+          .ignoresSafeArea()
+      VStack{
+        TabView(selection: $indexOfImage){
+          ForEach(1..<6, id: \.self){ index in
+            switch index{
+            case 1:
+              NavigationLink{
+                
+              }label: {
+                Image("\(index)")
+                  .resizable()
+                  .frame(width: 400, height: 300)
+                  .shadow(radius: 2)
+              }
+            case 2:
+              NavigationLink{
+                
+              }label: {
+                Image("\(index)")
+                  .resizable()
+                  .frame(width: 400, height: 300)
+                  .shadow(radius: 2)
+              }
+            case 3:
+              NavigationLink{
+                
+              }label: {
+                Image("\(index)")
+                  .resizable()
+                  .frame(width: 400, height: 300)
+                  .shadow(radius: 2)
+              }
+            case 4:
+              NavigationLink{
+                
+              }label: {
+                Image("\(index)")
+                  .resizable()
+                  .frame(width: 400, height: 300)
+                  .shadow(radius: 2)
+              }
+            case 5:
+              NavigationLink{
+                
+              }label: {
+                Image("\(index)")
+                  .resizable()
+                  .frame(width: 400, height: 300)
+                  .shadow(radius: 2)
+              }
+            case 6:
+              NavigationLink{
+                
+              }label: {
+                Image("\(index)")
+                  .resizable()
+                  .frame(width: 400, height: 300)
+                  .shadow(radius: 2)
+              }
+            default:
+              Image("NotFound")
+                .resizable()
+                .frame(width: 400, height: 300)
+                .shadow(radius: 2)
+            }
+            
           }
-        }
+        }.tabViewStyle(.page)
       }
-      Spacer()
+    }
   }
 }
 
 #Preview {
-  PortadaView(images: .constant(Items.itemsTest.items))
+  ZStack{
+      Color(uiColor: .blue)
+          .ignoresSafeArea()
+      VStack{
+          PortadaView( indexOfImage: 1)
+      }
+  }
 }

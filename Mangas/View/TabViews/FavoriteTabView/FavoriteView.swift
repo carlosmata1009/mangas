@@ -6,19 +6,45 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct FavoriteView: View {
-    var body: some View {
+  var mangas: [Manga]
+//  @State var swiftDataVM: SwiftDataVM
+//  init(modelContext: ModelContext) {
+//    let viewModel = SwiftDataVM(context: modelContext)
+//    _swiftDataVM = State(initialValue: viewModel)
+//  }
+  var body: some View {
+    NavigationStack{
       ZStack{
         Color("BackgroundColor")
           .ignoresSafeArea()
-        VStack{
-          Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack(alignment: .leading, spacing: 10){
+          ScrollView{
+            ForEach(mangas){manga in
+              NavigationLink{
+                MangaDetail(manga: manga)
+              }label:{
+                MangaFavoriteRowItem(manga: manga)
+              }
+            }
+          }.padding()
         }
       }
     }
+  }
 }
 
 #Preview {
-    FavoriteView()
+//  do {
+//  let config = ModelConfiguration(isStoredInMemoryOnly: true)
+//  let container = try ModelContainer(for: MangaCategory.self, configurations: config)
+//  return FavoriteView(modelContext: container.mainContext)
+//} catch {
+//  fatalError("Failed to create ModelContainer: \(error.localizedDescription)")
+//}
+  NavigationStack{
+    FavoriteView(mangas: Items.itemsTest.items)
+  }
 }

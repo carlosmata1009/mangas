@@ -1,26 +1,26 @@
-////
-////  SearchView.swift
-////  Mangas
-////
-////  Created by Carlos Mata on 8/26/24.
-////
 //
-//import SwiftUI
+//  SearchView.swift
+//  Mangas
 //
-//struct SearchView: View {
-//  var mangaVM: HomeVM
-//  var body: some View {
-//    ZStack {
-//      Color("BackgroundColor")
-//        .ignoresSafeArea()
-//      VStack {
-//        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-//          .foregroundStyle(.white)
-//      }
-//    }
-//  }
-//}
+//  Created by Carlos Mata on 8/26/24.
 //
-//#Preview {
-//  SearchView(mangaVM: HomeVM(networkService: MockDataTest()))
-//}
+
+import SwiftUI
+
+struct SearchView: View {
+  
+  var body: some View {
+    ZStack {
+      Color("BackgroundColor")
+        .ignoresSafeArea()
+      VStack {
+        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+          .foregroundStyle(.white)
+      }
+    }
+  }
+}
+
+#Preview {
+  SearchView()
+}

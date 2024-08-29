@@ -14,7 +14,7 @@
 		174AFB9D2C7CBA27000598F4 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174AFB9C2C7CBA27000598F4 /* SearchView.swift */; };
 		174AFBA12C7D3DD9000598F4 /* CustomAsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174AFBA02C7D3DD9000598F4 /* CustomAsyncImage.swift */; };
 		174AFBA52C7D46B9000598F4 /* CategoryVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174AFBA42C7D46B9000598F4 /* CategoryVM.swift */; };
-		174AFBA72C7E264E000598F4 /* SwiftDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174AFBA62C7E264E000598F4 /* SwiftDataModel.swift */; };
+		174DB4AC2C7F1CB7000E486B /* SwiftDataVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174DB4AB2C7F1CB7000E486B /* SwiftDataVM.swift */; };
 		178874ED2C7236E500889B0C /*  MangaDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178874EC2C7236E500889B0C /*  MangaDetail.swift */; };
 		178874F12C734D4600889B0C /* PortadaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178874F02C734D4600889B0C /* PortadaView.swift */; };
 		178874F32C73ACCF00889B0C /* HorizontalScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178874F22C73ACCF00889B0C /* HorizontalScrollView.swift */; };
@@ -34,6 +34,8 @@
 		17D528582C78B3B200E09C04 /* MangaSubcategoryGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D528572C78B3B200E09C04 /* MangaSubcategoryGridView.swift */; };
 		17DEDD262C6A5BAD00A80E5E /* URLRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DEDD252C6A5BAD00A80E5E /* URLRequest.swift */; };
 		17DEDD282C6A5D2E00A80E5E /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DEDD272C6A5D2E00A80E5E /* NetworkService.swift */; };
+		17F585A82C8089410002951C /* detailsAbout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F585A72C8089410002951C /* detailsAbout.swift */; };
+		17F585AA2C80A7110002951C /* MangaFavoriteRowItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F585A92C80A7110002951C /* MangaFavoriteRowItem.swift */; };
 		17F8AC672C6F656F007FD1D0 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F8AC662C6F656F007FD1D0 /* HomeView.swift */; };
 		17F8AC6D2C6F66C0007FD1D0 /* CategoryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F8AC6C2C6F66C0007FD1D0 /* CategoryListView.swift */; };
 		17F8AC702C6F66E1007FD1D0 /* FavoriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F8AC6F2C6F66E1007FD1D0 /* FavoriteView.swift */; };
@@ -47,7 +49,7 @@
 		174AFB9C2C7CBA27000598F4 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		174AFBA02C7D3DD9000598F4 /* CustomAsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAsyncImage.swift; sourceTree = "<group>"; };
 		174AFBA42C7D46B9000598F4 /* CategoryVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryVM.swift; sourceTree = "<group>"; };
-		174AFBA62C7E264E000598F4 /* SwiftDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftDataModel.swift; sourceTree = "<group>"; };
+		174DB4AB2C7F1CB7000E486B /* SwiftDataVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftDataVM.swift; sourceTree = "<group>"; };
 		178874EC2C7236E500889B0C /*  MangaDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = " MangaDetail.swift"; sourceTree = "<group>"; };
 		178874F02C734D4600889B0C /* PortadaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortadaView.swift; sourceTree = "<group>"; };
 		178874F22C73ACCF00889B0C /* HorizontalScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalScrollView.swift; sourceTree = "<group>"; };
@@ -69,6 +71,8 @@
 		17D528572C78B3B200E09C04 /* MangaSubcategoryGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangaSubcategoryGridView.swift; sourceTree = "<group>"; };
 		17DEDD252C6A5BAD00A80E5E /* URLRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequest.swift; sourceTree = "<group>"; };
 		17DEDD272C6A5D2E00A80E5E /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		17F585A72C8089410002951C /* detailsAbout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = detailsAbout.swift; sourceTree = "<group>"; };
+		17F585A92C80A7110002951C /* MangaFavoriteRowItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangaFavoriteRowItem.swift; sourceTree = "<group>"; };
 		17F8AC662C6F656F007FD1D0 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		17F8AC6C2C6F66C0007FD1D0 /* CategoryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListView.swift; sourceTree = "<group>"; };
 		17F8AC6F2C6F66E1007FD1D0 /* FavoriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteView.swift; sourceTree = "<group>"; };
@@ -111,6 +115,8 @@
 				178874F22C73ACCF00889B0C /* HorizontalScrollView.swift */,
 				17D528572C78B3B200E09C04 /* MangaSubcategoryGridView.swift */,
 				174AFBA02C7D3DD9000598F4 /* CustomAsyncImage.swift */,
+				17F585A72C8089410002951C /* detailsAbout.swift */,
+				17F585A92C80A7110002951C /* MangaFavoriteRowItem.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -149,7 +155,6 @@
 				17CE26382C6A533100847BF6 /* Models */,
 				17F8AC652C6F6558007FD1D0 /* View */,
 				17CE26282C6A52C600847BF6 /* MangasApp.swift */,
-				174AFBA62C7E264E000598F4 /* SwiftDataModel.swift */,
 				17CE262C2C6A52C700847BF6 /* Assets.xcassets */,
 				17CE262E2C6A52C700847BF6 /* Mangas.entitlements */,
 				17CE262F2C6A52C700847BF6 /* Preview Content */,
@@ -183,6 +188,7 @@
 			children = (
 				179E2A2E2C6CB07E00FAF2C8 /* HomeVM.swift */,
 				174AFBA42C7D46B9000598F4 /* CategoryVM.swift */,
+				174DB4AB2C7F1CB7000E486B /* SwiftDataVM.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -325,6 +331,7 @@
 				17F8AC702C6F66E1007FD1D0 /* FavoriteView.swift in Sources */,
 				178874ED2C7236E500889B0C /*  MangaDetail.swift in Sources */,
 				179E2A2F2C6CB07E00FAF2C8 /* HomeVM.swift in Sources */,
+				174DB4AC2C7F1CB7000E486B /* SwiftDataVM.swift in Sources */,
 				178874F32C73ACCF00889B0C /* HorizontalScrollView.swift in Sources */,
 				1737CD9F2C73D8F300360067 /* ButtonSubCategories.swift in Sources */,
 				17CE26402C6A568100847BF6 /* Demographic.swift in Sources */,
@@ -334,10 +341,12 @@
 				1707B9092C7610A3009A36F0 /* SubCategoriesListView.swift in Sources */,
 				174AFBA52C7D46B9000598F4 /* CategoryVM.swift in Sources */,
 				17F8AC672C6F656F007FD1D0 /* HomeView.swift in Sources */,
+				17F585AA2C80A7110002951C /* MangaFavoriteRowItem.swift in Sources */,
 				17CE262B2C6A52C600847BF6 /* ContentView.swift in Sources */,
 				17F8AC6D2C6F66C0007FD1D0 /* CategoryListView.swift in Sources */,
 				179E2A2A2C6B90BA00FAF2C8 /* NetworkDataTest.swift in Sources */,
 				1707B9072C760E80009A36F0 /* ButtonCategory.swift in Sources */,
+				17F585A82C8089410002951C /* detailsAbout.swift in Sources */,
 				174AFB9D2C7CBA27000598F4 /* SearchView.swift in Sources */,
 				17DEDD282C6A5D2E00A80E5E /* NetworkService.swift in Sources */,
 				17CE26292C6A52C600847BF6 /* MangasApp.swift in Sources */,
@@ -348,7 +357,6 @@
 				179E2A2D2C6C9EA600FAF2C8 /* NetworkProtocol.swift in Sources */,
 				179E2A262C6B81CE00FAF2C8 /* MangaScrollItemView.swift in Sources */,
 				17DEDD262C6A5BAD00A80E5E /* URLRequest.swift in Sources */,
-				174AFBA72C7E264E000598F4 /* SwiftDataModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -490,8 +498,8 @@
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
@@ -528,8 +536,8 @@
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
