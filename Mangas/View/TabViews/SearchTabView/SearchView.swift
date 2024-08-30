@@ -36,6 +36,13 @@ struct SearchView: View {
                 Text("Begins with").tag(2)
               }.pickerStyle(.automatic)
             }
+            ToolbarItem(placement: .navigation) {
+              NavigationLink{
+                
+              }label:{
+                Text("Advanced Search")
+              }
+            }
           }
       }.searchable(text: $searchVM.searchText)
         .onChange(of: searchVM.searchText){

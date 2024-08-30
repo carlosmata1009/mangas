@@ -35,6 +35,7 @@
 		17D528582C78B3B200E09C04 /* MangaSubcategoryGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D528572C78B3B200E09C04 /* MangaSubcategoryGridView.swift */; };
 		17DEDD262C6A5BAD00A80E5E /* URLRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DEDD252C6A5BAD00A80E5E /* URLRequest.swift */; };
 		17DEDD282C6A5D2E00A80E5E /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DEDD272C6A5D2E00A80E5E /* NetworkService.swift */; };
+		17EF5D5B2C828D80006725CC /* AdvancedSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EF5D5A2C828D80006725CC /* AdvancedSearchView.swift */; };
 		17F585A82C8089410002951C /* detailsAbout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F585A72C8089410002951C /* detailsAbout.swift */; };
 		17F585AA2C80A7110002951C /* MangaFavoriteRowItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F585A92C80A7110002951C /* MangaFavoriteRowItem.swift */; };
 		17F8AC672C6F656F007FD1D0 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F8AC662C6F656F007FD1D0 /* HomeView.swift */; };
@@ -73,6 +74,7 @@
 		17D528572C78B3B200E09C04 /* MangaSubcategoryGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangaSubcategoryGridView.swift; sourceTree = "<group>"; };
 		17DEDD252C6A5BAD00A80E5E /* URLRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequest.swift; sourceTree = "<group>"; };
 		17DEDD272C6A5D2E00A80E5E /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		17EF5D5A2C828D80006725CC /* AdvancedSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedSearchView.swift; sourceTree = "<group>"; };
 		17F585A72C8089410002951C /* detailsAbout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = detailsAbout.swift; sourceTree = "<group>"; };
 		17F585A92C80A7110002951C /* MangaFavoriteRowItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangaFavoriteRowItem.swift; sourceTree = "<group>"; };
 		17F8AC662C6F656F007FD1D0 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				174AFB9C2C7CBA27000598F4 /* SearchView.swift */,
+				17EF5D5A2C828D80006725CC /* AdvancedSearchView.swift */,
 			);
 			path = SearchTabView;
 			sourceTree = "<group>";
@@ -356,6 +359,7 @@
 				17CE26292C6A52C600847BF6 /* MangasApp.swift in Sources */,
 				17CE263C2C6A55EA00847BF6 /* Genre.swift in Sources */,
 				17D528582C78B3B200E09C04 /* MangaSubcategoryGridView.swift in Sources */,
+				17EF5D5B2C828D80006725CC /* AdvancedSearchView.swift in Sources */,
 				17CE263E2C6A564600847BF6 /* Author.swift in Sources */,
 				17CE26422C6A56F400847BF6 /* Theme.swift in Sources */,
 				179E2A2D2C6C9EA600FAF2C8 /* NetworkProtocol.swift in Sources */,

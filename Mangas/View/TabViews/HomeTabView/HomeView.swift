@@ -13,32 +13,34 @@ struct HomeView: View {
   @State var mangaVM: HomeVM = HomeVM()
   @State var searchText = ""
   @Query var mangaCategories: [MangaCategory]
-  
+  @State private var indexOfImage = 1
+  let images: [Manga] = Items.itemsTest.items
   var body: some View {
     
     NavigationStack{
       ZStack {
         Color("BackgroundColor")
           .ignoresSafeArea(.all)
-        VStack{
-          PortadaView()
-            .padding(.vertical)
-          ScrollView{
-            if mangaCategories.isEmpty{
-              HorizontalScrollView(mangas: mangaVM.mangasAll, mangasCategory: "All Mangas")
-              HorizontalScrollView(mangas: mangaVM.mangasBest, mangasCategory: "Best Mangas")
-              HorizontalScrollView(mangas: mangaVM.mangasAuthor, mangasCategory: "Author")
-              HorizontalScrollView(mangas: mangaVM.mangasDemographic, mangasCategory: "Demographics")
-              HorizontalScrollView(mangas: mangaVM.mangasTheme, mangasCategory: "Themes")
-              HorizontalScrollView(mangas: mangaVM.mangasGenre, mangasCategory: "Genre")
-            }else{
-              ForEach(mangaCategories, id: \.self){ mang in
-                HorizontalScrollView(mangas: mang.mangas.sorted(by: Manga.byScore), mangasCategory: mang.name)
+        ScrollView{
+          VStack{
+            PortadaView(indexOfImage: $indexOfImage, mangas: images)
+              if mangaCategories.isEmpty{
+                HorizontalScrollView(mangas: mangaVM.mangasAll, mangasCategory: "All Mangas")
+                HorizontalScrollView(mangas: mangaVM.mangasBest, mangasCategory: "Best Mangas")
+                HorizontalScrollView(mangas: mangaVM.mangasAuthor, mangasCategory: "Author")
+                HorizontalScrollView(mangas: mangaVM.mangasDemographic, mangasCategory: "Demographics")
+                HorizontalScrollView(mangas: mangaVM.mangasTheme, mangasCategory: "Themes")
+                HorizontalScrollView(mangas: mangaVM.mangasGenre, mangasCategory: "Genre")
+              }else{
+                ForEach(mangaCategories, id: \.self){ mangaCategory in
+                  if mangaCategory.name == "MyMangas"{}else{
+                    HorizontalScrollView(mangas: mangaCategory.mangas.sorted(by: Manga.byScore), mangasCategory: mangaCategory.name)
+                  }
               }
             }
           }
         }
-        .padding(.vertical, 5)
+        .padding(.bottom, 3)
         .task{
           if mangaCategories.isEmpty{
             do{

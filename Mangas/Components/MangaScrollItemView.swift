@@ -12,7 +12,7 @@ struct MangaScrollItemView: View {
   
   var body: some View {
     VStack{
-      CustomAsyncImage(url: manga.cleanedURLMainPicture, width: 90, height: 120)
+      CustomAsyncImage(url: manga.cleanedURLMainPicture, width: 110, height: 150)
       VStack{
         HStack{
           Text(manga.title)

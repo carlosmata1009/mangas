@@ -29,6 +29,21 @@ struct MangasByCategory: View {
                 }
               }
             }
+            ScrollView(.horizontal){
+              HStack{
+                ForEach(1..<categoryVM.numberPages + 1, id: \.self){ number in
+                  Button{
+                    categoryVM.page = number
+                    Task{
+                      try await categoryVM.loadMangasBySubCategory(category: category, subCategory: subcategory.lowercased())
+                    }
+                  }label:{
+                    Text(String(number))
+                      .font(.title)
+                  }
+                }.foregroundStyle(.white)
+              }.padding()
+            }
           }
           .navigationTitle(subcategory)
           .task {
@@ -39,21 +54,7 @@ struct MangasByCategory: View {
             }
           }
           .padding()
-          ScrollView(.horizontal){
-            HStack{
-              ForEach(1..<categoryVM.numberPages + 1, id: \.self){ number in
-                Button{
-                  categoryVM.page = number 
-                  Task{
-                    try await categoryVM.loadMangasBySubCategory(category: category, subCategory: subcategory.lowercased())
-                  }
-                }label:{
-                  Text(String(number))
-                    .font(.title)
-                }
-              }.foregroundStyle(.white)
-            }.padding()
-          }
+          
         }
         
         .toolbar{

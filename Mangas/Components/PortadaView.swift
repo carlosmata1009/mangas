@@ -8,90 +8,37 @@
 import SwiftUI
 
 struct PortadaView: View {
-  @State var indexOfImage: Int = 0
+  @Binding var indexOfImage: Int
+  var mangas: [Manga]
   
   var body: some View {
-    ZStack{
-      Color("BackgroundColor")
-          .ignoresSafeArea()
-      VStack{
-        TabView(selection: $indexOfImage){
-          ForEach(1..<6, id: \.self){ index in
-            switch index{
-            case 1:
+    VStack {
+        TabView(selection: $indexOfImage) {
+          ForEach(mangas) { manga in
+            VStack {
               NavigationLink{
-                
+                MangaDetail(manga: manga)
               }label: {
-                Image("\(index)")
-                  .resizable()
-                  .frame(width: 400, height: 300)
-                  .shadow(radius: 2)
+                CustomAsyncImage(url: manga.cleanedURLMainPicture, width: 350, height: 400)
+                .overlay{
+                  LinearGradient(
+                    gradient: Gradient(colors: [Color.black.opacity(0.3), Color.clear, Color.clear, Color.black.opacity(0.3)]),
+                      startPoint: .top,
+                      endPoint: .bottom
+                  )
+                }
               }
-            case 2:
-              NavigationLink{
-                
-              }label: {
-                Image("\(index)")
-                  .resizable()
-                  .frame(width: 400, height: 300)
-                  .shadow(radius: 2)
-              }
-            case 3:
-              NavigationLink{
-                
-              }label: {
-                Image("\(index)")
-                  .resizable()
-                  .frame(width: 400, height: 300)
-                  .shadow(radius: 2)
-              }
-            case 4:
-              NavigationLink{
-                
-              }label: {
-                Image("\(index)")
-                  .resizable()
-                  .frame(width: 400, height: 300)
-                  .shadow(radius: 2)
-              }
-            case 5:
-              NavigationLink{
-                
-              }label: {
-                Image("\(index)")
-                  .resizable()
-                  .frame(width: 400, height: 300)
-                  .shadow(radius: 2)
-              }
-            case 6:
-              NavigationLink{
-                
-              }label: {
-                Image("\(index)")
-                  .resizable()
-                  .frame(width: 400, height: 300)
-                  .shadow(radius: 2)
-              }
-            default:
-              Image("NotFound")
-                .resizable()
-                .frame(width: 400, height: 300)
-                .shadow(radius: 2)
             }
-            
           }
-        }.tabViewStyle(.page)
-      }
+        }
+        .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
+        .frame(height: 400)
     }
   }
 }
 
 #Preview {
-  ZStack{
-      Color(uiColor: .blue)
-          .ignoresSafeArea()
-      VStack{
-          PortadaView( indexOfImage: 1)
-      }
+  VStack{
+    PortadaView( indexOfImage: .constant(1), mangas: Items.itemsTest.items)
   }
 }

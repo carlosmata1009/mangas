@@ -14,11 +14,18 @@ extension URLRequest{
     request.setValue("application/json", forHTTPHeaderField: "Accept")
     return request
   }
+  static func post(url: URL) throws -> URLRequest{
+    var request = URLRequest(url: url)
+    request.httpMethod = "POST"
+    request.setValue("application/json", forHTTPHeaderField: "Accept")
+    return request
+  }
 }
 
 let api = URL(string: "https://mymanga-acacademy-5607149ebe3d.herokuapp.com/")!
 
 extension URL{
+  
   static func filterMangaByContains(word: String)-> URL{
     return api.appending(path: "search/mangasContains/\(word)")
   }

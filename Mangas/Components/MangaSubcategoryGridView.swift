@@ -11,7 +11,7 @@ struct MangaSubcategoryGridView: View {
   var manga: Manga
   var body: some View {
     VStack{
-      CustomAsyncImage(url: manga.cleanedURLMainPicture, width: 100, height: 140)
+      CustomAsyncImage(url: manga.cleanedURLMainPicture, width: 110, height: 150)
       VStack{
         HStack{
           Text(manga.title)
