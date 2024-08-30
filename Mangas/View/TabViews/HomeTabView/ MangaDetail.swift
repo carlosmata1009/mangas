@@ -9,11 +9,10 @@ import SwiftUI
 import SwiftData
 
 struct MangaDetail: View {
+  @Environment(\.modelContext) var context
   var manga: Manga
   @State var expandSynopsys = false
   @State var expandBackground = false
-//  @Binding var swiftDataVM: SwiftDataVM
-  
   var body: some View {
     ZStack {
       Color("BackgroundColor")
@@ -146,9 +145,6 @@ struct MangaDetail: View {
                 .font(.footnote)
             }
             
-            
-            
-            
             Text("About this Manga")
               .font(.headline)
             detailsAbout(name: "Demographics", manga: manga)
@@ -175,9 +171,7 @@ struct MangaDetail: View {
     .toolbar{
       ToolbarItem(placement: .primaryAction) {
         Button{
-          Task{
-//            try swiftDataVM.saveInSwiftData(name: "MyMangas", mangas: [manga])
-          }
+          context.insert(MangaCategory(name: "MyMangas", mangas: [manga]))
         }label:{
           Image(systemName: "plus")
         }
@@ -187,12 +181,5 @@ struct MangaDetail: View {
 }
 
 #Preview {
-//  do {
-//    let config = ModelConfiguration(isStoredInMemoryOnly: true)
-//    let container = try ModelContainer(for: MangaCategory.self, configurations: config)
-//    return MangaDetail(modelContext: container.mainContext)
-//  } catch {
-//    fatalError("Failed to create ModelContainer: \(error.localizedDescription)")
-//  }
   MangaDetail(manga: Items.itemTest)
 }

@@ -9,12 +9,8 @@ import SwiftUI
 import SwiftData
 
 struct FavoriteView: View {
-  var mangas: [Manga]
-//  @State var swiftDataVM: SwiftDataVM
-//  init(modelContext: ModelContext) {
-//    let viewModel = SwiftDataVM(context: modelContext)
-//    _swiftDataVM = State(initialValue: viewModel)
-//  }
+  @Environment(\.modelContext) private var context
+  @Query private var mangaCategory: [MangaCategory]
   var body: some View {
     NavigationStack{
       ZStack{
@@ -22,29 +18,28 @@ struct FavoriteView: View {
           .ignoresSafeArea()
         VStack(alignment: .leading, spacing: 10){
           ScrollView{
-            ForEach(mangas){manga in
-              NavigationLink{
-                MangaDetail(manga: manga)
-              }label:{
-                MangaFavoriteRowItem(manga: manga)
+            if((mangaCategory.filter{$0.name == "MyMangas"}).isEmpty){
+              Text("None Favorites yet, add somehting first")
+                .foregroundStyle(.white)
+            }else{
+              ForEach(mangaCategory.filter{$0.name == "MyMangas"}, id: \.self){mangaCategory in
+                ForEach(mangaCategory.mangas, id: \.id){manga in
+                  NavigationLink{
+                    MangaDetail(manga: manga)
+                  }label:{
+                    MangaFavoriteRowItem(manga: manga)
+                  }
+                }
               }
             }
           }.padding()
         }
       }
     }
-  }
+  }    
 }
 
 #Preview {
-//  do {
-//  let config = ModelConfiguration(isStoredInMemoryOnly: true)
-//  let container = try ModelContainer(for: MangaCategory.self, configurations: config)
-//  return FavoriteView(modelContext: container.mainContext)
-//} catch {
-//  fatalError("Failed to create ModelContainer: \(error.localizedDescription)")
-//}
-  NavigationStack{
-    FavoriteView(mangas: Items.itemsTest.items)
-  }
+  FavoriteView()
+    .modelContainer(.preview)
 }

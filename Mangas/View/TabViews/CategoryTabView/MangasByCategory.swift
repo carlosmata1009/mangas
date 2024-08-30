@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct MangasByCategory: View {
+  @Environment(\.modelContext) private var context
   @State var categoryVM: CategoryVM
   var category: String
   var subcategory: String
@@ -22,7 +23,7 @@ struct MangasByCategory: View {
             LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]){
               ForEach(categoryVM.mangas) { manga in
                 NavigationLink{
-                  MangaDetail(manga: manga)
+                  MangaDetail( manga: manga)
                 }label: {
                   MangaSubcategoryGridView(manga: manga)
                 }
@@ -54,21 +55,21 @@ struct MangasByCategory: View {
             }.padding()
           }
         }
+        
         .toolbar{
           ToolbarItem(placement: .primaryAction) {
-            Button{
-              categoryVM.per = selection
-              print(categoryVM.per)
-            }label:{
-              Picker("", selection: $categoryVM.per) {
-                Text("12 mangas").tag(12)
-                Text("24 mangas").tag(24)
-                Text("36 mangas").tag(36)
-                Text("48 mangas").tag(48)
-                Text("60 mangas").tag(60)
-              }
-              .pickerStyle(.automatic)
+            Picker("", selection: $categoryVM.per) {
+              Text("12 mangas").tag(12)
+              Text("24 mangas").tag(24)
+              Text("36 mangas").tag(36)
+              Text("48 mangas").tag(48)
+              Text("60 mangas").tag(60)
             }
+            .pickerStyle(.automatic)
+          }
+        }.onChange(of: categoryVM.per){
+          Task{
+            try await categoryVM.loadMangasBySubCategory(category: category, subCategory: subcategory.lowercased())
           }
         }
       }

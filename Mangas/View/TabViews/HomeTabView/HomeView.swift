@@ -9,26 +9,22 @@ import SwiftUI
 import SwiftData
 
 struct HomeView: View {
+  @Environment(\.modelContext) private var context
   @State var mangaVM: HomeVM = HomeVM()
   @State var searchText = ""
-  @State var swiftDataVM: SwiftDataVM
-  init(modelContext: ModelContext) {
-    let viewModel = SwiftDataVM(context: modelContext)
-    _swiftDataVM = State(initialValue: viewModel)
-  }
+  @Query var mangaCategories: [MangaCategory]
+  
   var body: some View {
     
     NavigationStack{
       ZStack {
         Color("BackgroundColor")
           .ignoresSafeArea(.all)
-        
         VStack{
           PortadaView()
             .padding(.vertical)
           ScrollView{
-            
-            if $swiftDataVM.mangaCategories.isEmpty{
+            if mangaCategories.isEmpty{
               HorizontalScrollView(mangas: mangaVM.mangasAll, mangasCategory: "All Mangas")
               HorizontalScrollView(mangas: mangaVM.mangasBest, mangasCategory: "Best Mangas")
               HorizontalScrollView(mangas: mangaVM.mangasAuthor, mangasCategory: "Author")
@@ -36,7 +32,7 @@ struct HomeView: View {
               HorizontalScrollView(mangas: mangaVM.mangasTheme, mangasCategory: "Themes")
               HorizontalScrollView(mangas: mangaVM.mangasGenre, mangasCategory: "Genre")
             }else{
-              ForEach(swiftDataVM.mangaCategories, id: \.self){ mang in
+              ForEach(mangaCategories, id: \.self){ mang in
                 HorizontalScrollView(mangas: mang.mangas.sorted(by: Manga.byScore), mangasCategory: mang.name)
               }
             }
@@ -44,17 +40,11 @@ struct HomeView: View {
         }
         .padding(.vertical, 5)
         .task{
-          if swiftDataVM.mangaCategories.isEmpty{
+          if mangaCategories.isEmpty{
             do{
               try await mangaVM.loadListHome()
               try await Task.sleep(nanoseconds: 5 * 1_000_000_000)
-              try swiftDataVM.saveInSwiftData(name: "All Mangas", mangas: mangaVM.mangasAll)
-              try swiftDataVM.saveInSwiftData(name: "Best Mangas", mangas: mangaVM.mangasBest)
-              try swiftDataVM.saveInSwiftData(name: "Author", mangas: mangaVM.mangasAuthor)
-              try swiftDataVM.saveInSwiftData(name: "Demographics", mangas: mangaVM.mangasDemographic)
-              try swiftDataVM.saveInSwiftData(name: "Themes", mangas: mangaVM.mangasTheme)
-              try swiftDataVM.saveInSwiftData(name: "Genre", mangas: mangaVM.mangasGenre)
-              
+              saveMangaCategories()
             } catch {
               print("Error: \(error)")
             }
@@ -65,15 +55,17 @@ struct HomeView: View {
       }
     }
   }
-  
+  private func saveMangaCategories(){
+    context.insert(MangaCategory(name: "All Mangas", mangas: mangaVM.mangasAll))
+    context.insert(MangaCategory(name: "Best Mangas", mangas: mangaVM.mangasBest))
+    context.insert(MangaCategory(name: "Author", mangas: mangaVM.mangasAuthor))
+    context.insert(MangaCategory(name: "Demographics", mangas: mangaVM.mangasDemographic))
+    context.insert(MangaCategory(name: "Themes", mangas: mangaVM.mangasTheme))
+    context.insert(MangaCategory(name: "Genre", mangas: mangaVM.mangasGenre))
+ }
 }
 
 #Preview {
-  do {
-    let config = ModelConfiguration(isStoredInMemoryOnly: true)
-    let container = try ModelContainer(for: MangaCategory.self, configurations: config)
-    return HomeView(modelContext: container.mainContext)
-  } catch {
-    fatalError("Failed to create ModelContainer: \(error.localizedDescription)")
-  }
+  HomeView()
+    .modelContainer(.preview)
 }

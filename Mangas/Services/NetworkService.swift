@@ -9,8 +9,16 @@ import Foundation
 
 @Observable
 class NetworkService: NetworkProtocol{
-  
+
   static let shared = NetworkService()
+  
+  func getMangasByFilterBegin(word: String) async throws -> [Manga] {
+    try await fetchCategories(request: .get(url: .filterMangaByBegins(word: word)), response: Manga.self)
+  }
+  
+  func getMangasByFilterContain(word: String, page: Int, per: Int) async throws -> Items {
+    try await perform(request: .get(url: .filterMangaByContains(word: word)))
+  }
   
   func getMangasByCategory(category: String, subcategory: String, page: Int?, per: Int?) async throws -> Items {
     try await perform(request: .get(url: .getMangaByCategory(category: category, subCategory: subcategory, page: page, per: per)))

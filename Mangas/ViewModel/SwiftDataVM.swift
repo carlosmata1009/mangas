@@ -13,12 +13,16 @@ import SwiftUI
 final class SwiftDataVM{
   var context: ModelContext
   var mangaCategories: [MangaCategory] = []
-  
+
   init(context: ModelContext) {
+
     self.context = context
     fetchMangaCategories()
   }
-  
+  func fetchMyMangas()-> MangaCategory{
+
+    return mangaCategories.first(where: { $0.name == "MyMangas" }) ?? MangaCategory(name: "MyMangas", mangas: [])
+  }
   func fetchMangaCategories(){
     do{
       let descriptor = FetchDescriptor<MangaCategory>()

@@ -10,7 +10,6 @@ import SwiftData
 @main
 struct MangasApp: App {
   let container: ModelContainer
-  
   init() {
     UITabBar.appearance().unselectedItemTintColor = UIColor.lightGray
     UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).backgroundColor = UIColor.white

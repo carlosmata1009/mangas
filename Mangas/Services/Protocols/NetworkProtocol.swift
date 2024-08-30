@@ -19,4 +19,6 @@ protocol NetworkProtocol{
   func getThemes() async throws -> [String]
   func getAuthors() async throws -> [Author]
   func getMangasByCategory(category: String, subcategory: String, page: Int?, per: Int?) async throws -> Items
+  func getMangasByFilterBegin(word: String) async throws -> [Manga]
+  func getMangasByFilterContain(word: String, page: Int, per: Int) async throws -> Items
 }

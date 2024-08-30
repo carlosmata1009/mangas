@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct HorizontalScrollView: View {
+  @Environment(\.modelContext) private var context
   var mangas: [Manga]
   var mangasCategory: String
   

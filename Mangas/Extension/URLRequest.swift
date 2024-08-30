@@ -16,39 +16,46 @@ extension URLRequest{
   }
 }
 
-let api = URL(string: "https://mymanga-acacademy-5607149ebe3d.herokuapp.com/list/")!
+let api = URL(string: "https://mymanga-acacademy-5607149ebe3d.herokuapp.com/")!
 
 extension URL{
+  static func filterMangaByContains(word: String)-> URL{
+    return api.appending(path: "search/mangasContains/\(word)")
+  }
+  static func filterMangaByBegins(word: String)-> URL{
+    return api.appending(path: "search/mangasBeginsWith/\(word)")
+  }
+  
   static func getMangaByCategory(category: String, subCategory: String, page: Int?, per: Int?) async throws -> URL{
     if let page = page, let per = per{
       let query = "page=\(page)&per=\(per)"
-      let url = "\(api)mangaBy\(category)/\(subCategory)?\(query)"
+      let url = "\(api)list/mangaBy\(category)/\(subCategory)?\(query)"
       guard let url = URL(string: url) else{
         throw URLError(.badURL)
       }
       return url
     }else{
-      let url = "\(api)mangaBy\(category)/\(subCategory)"
+      let url = "\(api)list/mangaBy\(category)/\(subCategory)"
       guard let url = URL(string: url)else{
         throw URLError(.badURL)
       }
       return url
     }
   }
-  static let getAuthors = api.appending(path: "authors")
-  static let getThemeCategories = api.appending(path: "themes")
-  static let getDemographicCategories = api.appending(path:"demographics")
-  static let getGenreCategories = api.appending(path: "genres")
+  static let getAuthors = api.appending(path: "list/authors")
+  static let getThemeCategories = api.appending(path: "list/themes")
+  static let getDemographicCategories = api.appending(path:"list/demographics")
+  static let getGenreCategories = api.appending(path: "list/genres")
   static func getMangaList(page: Int? , per: Int? )async throws-> URL{
     if let page = page, let per = per{
       let query = "page=\(page)&per=\(per)"
-      let url = "\(api)/mangas?\(query)"
+      let url = "\(api)list/mangas?\(query)"
       guard let url = URL(string: url) else{
         throw URLError(.badURL)
      }
       return url
     }
-    guard let url = URL(string: "\(api)/mangas")else{
+    guard let url = URL(string: "\(api)list/mangas")else{
       throw URLError(.badURL)
     }
     return url
@@ -56,26 +63,26 @@ extension URL{
   static func getBestMangaList(page: Int?, per: Int?)async throws-> URL{
     if let page = page, let per = per{
       let query = "page=\(page)&per=\(per)"
-      let url = "\(api)bestMangas?\(query)"
+      let url = "\(api)list/bestMangas?\(query)"
       guard let url = URL(string: url) else{
         throw URLError(.badURL)
       }
       return url
     }
-    guard let url = URL(string: "\(api)bestMangas")else{
+    guard let url = URL(string: "\(api)list/bestMangas")else{
       throw URLError(.badURL)
     }
     return url
   }
   static func getThemeMangaList(page: Int?, per: Int?)async throws-> URL{
     if(page == nil && per == nil){
-      guard let url = URL(string: "\(api)mangaByTheme/school")else{
+      guard let url = URL(string: "\(api)list/mangaByTheme/school")else{
         throw URLError(.badURL)
       }
       return url
     }else{
       let query = "page=\(page ?? 0)&per=\(per ?? 0)"
-      let url = "\(api)/mangaByTheme/school?\(query)"
+      let url = "\(api)list/mangaByTheme/school?\(query)"
       guard let url = URL(string: url) else{
         throw URLError(.badURL)
       }
@@ -84,13 +91,13 @@ extension URL{
   }
   static func getGenreMangaList(page: Int?, per: Int?)async throws-> URL{
     if(page == nil && per == nil){
-      guard let url = URL(string: "\(api)mangaByGenre/romance")else{
+      guard let url = URL(string: "\(api)list/mangaByGenre/romance")else{
         throw URLError(.badURL)
       }
       return url
     }else{
       let query = "page=\(page ?? 0)&per=\(per ?? 0)"
-      let url = "\(api)mangaByGenre/romance?\(query)"
+      let url = "\(api)list/mangaByGenre/romance?\(query)"
       guard let url = URL(string: url) else{
         throw URLError(.badURL)
       }
@@ -99,13 +106,13 @@ extension URL{
   }
   static func getDemographicMangaList(page: Int?, per: Int?)async throws-> URL{
     if(page == nil && per == nil){
-      guard let url = URL(string: "\(api)mangaByDemographic/Seinen")else{
+      guard let url = URL(string: "\(api)list/mangaByDemographic/Seinen")else{
         throw URLError(.badURL)
       }
       return url
     }else{
       let query = "page=\(page ?? 0)&per=\(per ?? 0)"
-      let url = "\(api)mangaByDemographic/Seinen?\(query)"
+      let url = "\(api)list/mangaByDemographic/Seinen?\(query)"
       guard let url = URL(string: url) else{
         throw URLError(.badURL)
       }
@@ -114,13 +121,13 @@ extension URL{
   }
   static func getAuthorMangaList(page: Int?, per: Int?)async throws-> URL{
     if(page == nil && per == nil){
-      guard let url = URL(string: "\(api)mangaByAuthor/998C1B16-E3DB-47D1-8157-8389B5345D03")else{
+      guard let url = URL(string: "\(api)list/mangaByAuthor/998C1B16-E3DB-47D1-8157-8389B5345D03")else{
         throw URLError(.badURL)
       }
       return url
     }else{
       let query = "page=\(page ?? 0)&per=\(per ?? 0)"
-      let url = "\(api)mangaByAuthor/998C1B16-E3DB-47D1-8157-8389B5345D03?\(query)"
+      let url = "\(api)list/mangaByAuthor/998C1B16-E3DB-47D1-8157-8389B5345D03?\(query)"
       guard let url = URL(string: url) else{
         throw URLError(.badURL)
       }

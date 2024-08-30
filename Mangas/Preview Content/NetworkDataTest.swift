@@ -9,9 +9,18 @@ import Foundation
 import SwiftData
 import SwiftUI
 class MockDataTest: NetworkProtocol{
+  func getMangasByFilterBegin(word: String) async throws -> [Manga] {
+    return Items.itemsTest.items
+  }
+  
+  func getMangasByFilterContain(word: String, page: Int, per: Int) async throws -> Items {
+    return Items(items: Items.itemsTest.items, metadata: Items.itemsTest.metadata)
+  }
+  
   func getMangasByCategory(category: String, subcategory: String, page: Int?, per: Int?) async throws -> Items {
     return Items(items: Items.itemsTest.items , metadata: Items.itemsTest.metadata)
   }
+  
   
   func getThemes() async throws -> [String] {
     return ["Gore",
@@ -772,4 +781,15 @@ extension Items{
         fatalError("Failed to decode JSON: \(error)")
     }
   }()
+}
+extension ModelContainer {
+    static let preview: ModelContainer = {
+        let configuration = ModelConfiguration(isStoredInMemoryOnly: true)
+        let container = try! ModelContainer(for: MangaCategory.self, configurations: configuration)
+        Task { @MainActor in
+          let item = MangaCategory(name: "MyMangas",mangas: [Items.itemTest])
+            container.mainContext.insert(item)
+        }
+        return container
+    }()
 }
