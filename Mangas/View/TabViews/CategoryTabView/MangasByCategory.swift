@@ -23,9 +23,9 @@ struct MangasByCategory: View {
             LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]){
               ForEach(categoryVM.mangas) { manga in
                 NavigationLink{
-                  MangaDetail( manga: manga)
+                  MangaDetail(manga: manga)
                 }label: {
-                  MangaSubcategoryGridView(manga: manga)
+                  MangaItem(manga: manga, lineLimit: 2)
                 }
               }
             }

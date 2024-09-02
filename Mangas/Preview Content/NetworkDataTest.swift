@@ -9,11 +9,15 @@ import Foundation
 import SwiftData
 import SwiftUI
 class MockDataTest: NetworkProtocol{
+  func getImagesForPortada(page: Int, per: Int) async throws -> Items {
+    return Items(items: Items.itemsTest.items, metadata: Items.itemsTest.metadata)
+  }
+  
   func getMangasByFilterBegin(word: String) async throws -> [Manga] {
     return Items.itemsTest.items
   }
   
-  func getMangasByFilterContain(word: String, page: Int, per: Int) async throws -> Items {
+  func getMangasByFilterContain(word: String) async throws -> Items {
     return Items(items: Items.itemsTest.items, metadata: Items.itemsTest.metadata)
   }
   

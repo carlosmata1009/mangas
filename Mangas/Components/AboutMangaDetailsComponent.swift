@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct detailsAbout: View {
+struct AboutMangaDetailsComponent: View {
   var name: String
   var manga: Manga
     var body: some View {
@@ -17,7 +17,7 @@ struct detailsAbout: View {
           Spacer()
           detail(name: name, manga: manga)
         }
-      }.font(.footnote)
+      }.font(.subheadline)
     }
   private func detail(name: String, manga: Manga)-> some View{
     Group{
@@ -101,5 +101,5 @@ struct detailsAbout: View {
 }
 
 #Preview {
-  detailsAbout(name: "Demographics", manga: Items.itemTest)
+  AboutMangaDetailsComponent(name: "Demographics", manga: Items.itemTest)
 }

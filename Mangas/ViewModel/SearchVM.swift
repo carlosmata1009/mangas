@@ -12,14 +12,13 @@ class SearchVM{
   private var networkService: NetworkProtocol
   var searchSelection: Int = 1
   var searchText: String = ""
-  var page: Int = 1
-  var per: Int = 60
   var mangas: [Manga] = []
+  
   
   init(networkService: NetworkProtocol = NetworkService()) {
     self.networkService = networkService
   }
-  
+ 
   var searchTask: Task<Void, Never>?
 
   func search(word: String) async throws{
@@ -30,7 +29,7 @@ class SearchVM{
       do {
         try await Task.sleep(for: .milliseconds(400))
           if(searchSelection == 1){
-            mangas = try await networkService.getMangasByFilterContain(word: word, page: 1, per: per).items
+            mangas = try await networkService.getMangasByFilterContain(word: word).items
           }else{
             mangas = try await networkService.getMangasByFilterBegin(word: word)
           }

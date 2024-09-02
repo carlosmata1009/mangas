@@ -191,12 +191,15 @@ func clearDate(_ str: String)-> String{
   return finalDate
 }
 @Model
-class MangaCategory {
-    let name: String
-    @Relationship(deleteRule: .cascade) var mangas: [Manga]
-    
-    init(name: String, mangas: [Manga] = []) {
-        self.name = name
-        self.mangas = mangas
-    }
+class MangaCategory: Comparable {
+  let name: String
+  @Relationship(deleteRule: .cascade) var mangas: [Manga]
+  
+  init(name: String, mangas: [Manga] = []) {
+    self.name = name
+    self.mangas = mangas
+  }
+  static func < (lhs: MangaCategory, rhs: MangaCategory) -> Bool {
+    return lhs.name < rhs.name
+  }
 }

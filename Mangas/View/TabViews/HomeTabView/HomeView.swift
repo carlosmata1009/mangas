@@ -14,7 +14,7 @@ struct HomeView: View {
   @State var searchText = ""
   @Query var mangaCategories: [MangaCategory]
   @State private var indexOfImage = 1
-  let images: [Manga] = Items.itemsTest.items
+  @State var chargePortada = true
   var body: some View {
     
     NavigationStack{
@@ -23,16 +23,16 @@ struct HomeView: View {
           .ignoresSafeArea(.all)
         ScrollView{
           VStack{
-            PortadaView(indexOfImage: $indexOfImage, mangas: images)
+            PortadaView(indexOfImage: $indexOfImage, mangas: mangaVM.mangaPortada)
               if mangaCategories.isEmpty{
                 HorizontalScrollView(mangas: mangaVM.mangasAll, mangasCategory: "All Mangas")
                 HorizontalScrollView(mangas: mangaVM.mangasBest, mangasCategory: "Best Mangas")
-                HorizontalScrollView(mangas: mangaVM.mangasAuthor, mangasCategory: "Author")
-                HorizontalScrollView(mangas: mangaVM.mangasDemographic, mangasCategory: "Demographics")
-                HorizontalScrollView(mangas: mangaVM.mangasTheme, mangasCategory: "Themes")
-                HorizontalScrollView(mangas: mangaVM.mangasGenre, mangasCategory: "Genre")
+                HorizontalScrollView(mangas: mangaVM.mangasAuthor, mangasCategory: "Toriyama Akira")
+                HorizontalScrollView(mangas: mangaVM.mangasDemographic, mangasCategory: "Seinen")
+                HorizontalScrollView(mangas: mangaVM.mangasTheme, mangasCategory: "School")
+                HorizontalScrollView(mangas: mangaVM.mangasGenre, mangasCategory: "Romance")
               }else{
-                ForEach(mangaCategories, id: \.self){ mangaCategory in
+                ForEach(mangaCategories.sorted(), id: \.self){ mangaCategory in
                   if mangaCategory.name == "MyMangas"{}else{
                     HorizontalScrollView(mangas: mangaCategory.mangas.sorted(by: Manga.byScore), mangasCategory: mangaCategory.name)
                   }
@@ -42,16 +42,22 @@ struct HomeView: View {
         }
         .padding(.bottom, 3)
         .task{
-          if mangaCategories.isEmpty{
+          do{
+            if chargePortada == true{
+              try await mangaVM.getImagesPortadaRandom()
+              chargePortada = false
+            }
+          }catch{
+            print(error)
+          }
+          if mangaCategories.isEmpty || mangaCategories.first.map({$0.mangas.isEmpty}) == true{
             do{
               try await mangaVM.loadListHome()
-              try await Task.sleep(nanoseconds: 5 * 1_000_000_000)
+              try await Task.sleep(nanoseconds: 4 * 1_000_000_000)
               saveMangaCategories()
             } catch {
               print("Error: \(error)")
             }
-          }else{
-            print("Guardado")
           }
         }
       }
@@ -60,10 +66,10 @@ struct HomeView: View {
   private func saveMangaCategories(){
     context.insert(MangaCategory(name: "All Mangas", mangas: mangaVM.mangasAll))
     context.insert(MangaCategory(name: "Best Mangas", mangas: mangaVM.mangasBest))
-    context.insert(MangaCategory(name: "Author", mangas: mangaVM.mangasAuthor))
-    context.insert(MangaCategory(name: "Demographics", mangas: mangaVM.mangasDemographic))
-    context.insert(MangaCategory(name: "Themes", mangas: mangaVM.mangasTheme))
-    context.insert(MangaCategory(name: "Genre", mangas: mangaVM.mangasGenre))
+    context.insert(MangaCategory(name: "Toriyama Akira", mangas: mangaVM.mangasAuthor))
+    context.insert(MangaCategory(name: "Seinen", mangas: mangaVM.mangasDemographic))
+    context.insert(MangaCategory(name: "School", mangas: mangaVM.mangasTheme))
+    context.insert(MangaCategory(name: "Romance", mangas: mangaVM.mangasGenre))
  }
 }
 

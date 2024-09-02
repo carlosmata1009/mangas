@@ -1,19 +1,16 @@
 //
-//   MangaDetail.swift
+//  MangaItemDetail.swift
 //  Mangas
 //
-//  Created by Carlos Mata on 8/18/24.
+//  Created by Carlos Mata on 9/2/24.
 //
 
 import SwiftUI
-import SwiftData
 
-struct MangaDetail: View {
-  @Environment(\.modelContext) var context
+struct MangaItemDetail: View {
   var manga: Manga
   @State var expandSynopsys = false
   @State var expandBackground = false
-  @Query(filter: #Predicate<MangaCategory> { $0.name == "MyMangas" }) private var myMangaCategory: [MangaCategory]
   @State var disabledButton = false
   var body: some View {
     ZStack {
@@ -170,41 +167,10 @@ struct MangaDetail: View {
         Spacer()
       }
     }
-    .toolbar{
-      ToolbarItem(placement: .primaryAction) {
-        Button{
-          addIfNoExist(id: manga.id, manga: manga)
-        }label:{
-          Image(systemName: "plus")
-            .disabled(disabledButton)
-        }
-      }
-    }
-  }
-  private func addIfNoExist(id: Int, manga: Manga){
-    if let myMangaCategory = myMangaCategory.first(where: { $0.name == "MyMangas" }) {
-      if myMangaCategory.mangas.contains(where: { $0.id == id }) {
-        print("You can't add it twice.")
-      }else{
-        myMangaCategory.mangas.append(manga)
-        do{
-          try context.save()
-        }catch{
-          print("Failed to save after adding manga: \(error.localizedDescription)")
-        }
-      }
-    }else {
-      let newCategory = MangaCategory(name: "MyMangas", mangas: [manga])
-      context.insert(newCategory)
-      do{
-        try context.save()
-      }catch{
-        print("Failed to create new category and save manga: \(error.localizedDescription)")
-      }
-    }
   }
 }
 
 #Preview {
-  MangaDetail(manga: Items.itemTest)
+  MangaItemDetail(manga: Items.itemTest)
 }
+

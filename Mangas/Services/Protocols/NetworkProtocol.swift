@@ -9,10 +9,6 @@ import Foundation
 
 protocol NetworkProtocol{
   func getBestMangaList(page: Int?, per: Int?) async throws -> Items
-  func getGenreMangaList(page: Int?, per: Int?) async throws -> Items
-  func getThemeMangaList(page: Int?, per: Int?) async throws -> Items
-  func getDemographicMangaList(page: Int?, per: Int?) async throws -> Items
-  func getAuthorMangaList(page: Int?, per: Int?) async throws -> Items
   func getMangaList(page: Int?, per: Int?) async throws -> Items
   func getGenres() async throws -> [String]
   func getDemographics() async throws -> [String]
@@ -20,5 +16,6 @@ protocol NetworkProtocol{
   func getAuthors() async throws -> [Author]
   func getMangasByCategory(category: String, subcategory: String, page: Int?, per: Int?) async throws -> Items
   func getMangasByFilterBegin(word: String) async throws -> [Manga]
-  func getMangasByFilterContain(word: String, page: Int, per: Int) async throws -> Items
+  func getMangasByFilterContain(word: String) async throws -> Items
+  func getImagesForPortada(page: Int, per: Int)async throws -> Items
 }

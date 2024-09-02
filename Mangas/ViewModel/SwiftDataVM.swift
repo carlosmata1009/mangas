@@ -19,10 +19,6 @@ final class SwiftDataVM{
     self.context = context
     fetchMangaCategories()
   }
-  func fetchMyMangas()-> MangaCategory{
-
-    return mangaCategories.first(where: { $0.name == "MyMangas" }) ?? MangaCategory(name: "MyMangas", mangas: [])
-  }
   func fetchMangaCategories(){
     do{
       let descriptor = FetchDescriptor<MangaCategory>()

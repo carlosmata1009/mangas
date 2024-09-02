@@ -21,9 +21,9 @@ struct HorizontalScrollView: View {
         HStack() {
           ForEach(mangas, id: \.id) { manga in
             NavigationLink{
-              MangaDetail(manga: manga)
+              MangaItemDetail(manga: manga)
             }label: {
-              MangaScrollItemView(manga: manga)
+              MangaItem(manga: manga, lineLimit: 2)
             }
           }
         }.padding(.leading, 6)

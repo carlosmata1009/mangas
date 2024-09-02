@@ -17,12 +17,12 @@ struct CategoryListView: View {
           .ignoresSafeArea()
         VStack{
           ScrollView{
-            NavigationLink{
-              SubCategoriesListView(categoryName: "Author", categoryVM: categoryVM, categories: categoryVM.mangaAuthors.map{$0.firstName})
-                .navigationTitle("Authors")
-            }label: {
-              ButtonCategory(categoryName: "Authors")
-            }
+//            NavigationLink{
+//              SubCategoriesListView(categoryName: "Author", categoryVM: categoryVM, categories: categoryVM.mangaAuthors.map{$0.firstName})
+//                .navigationTitle("Authors")
+//            }label: {
+//              ButtonCategory(categoryName: "Authors")
+//            }
             NavigationLink{
               SubCategoriesListView(categoryName: "Demographic", categoryVM: categoryVM, categories: categoryVM.mangaDemographics.sorted())
                 .navigationTitle("Demographics")

@@ -8,6 +8,14 @@
 import Foundation
 import SwiftData
 
+enum SubCategoryDemographic: String, CaseIterable{
+  case None
+  case Seinen
+  case Shounen
+  case Shoujo
+  case Josei
+  case Kids
+}
 
 class Demographic: Codable{
   let demographic: String

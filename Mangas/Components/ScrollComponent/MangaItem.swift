@@ -1,14 +1,16 @@
 //
-//  Manga.swift
+//  MangaItem.swift
 //  Mangas
 //
-//  Created by Carlos Mata on 8/23/24.
+//  Created by Carlos Mata on 8/13/24.
 //
 
 import SwiftUI
 
-struct MangaSubcategoryGridView: View {
+struct MangaItem: View {
   var manga: Manga
+  var lineLimit: Int
+  
   var body: some View {
     VStack{
       CustomAsyncImage(url: manga.cleanedURLMainPicture, width: 110, height: 150)
@@ -16,22 +18,16 @@ struct MangaSubcategoryGridView: View {
         HStack{
           Text(manga.title)
             .foregroundStyle(.white)
-            .font(.headline)
-            .lineLimit(2)
+            .font(.subheadline)
+            .lineLimit(lineLimit)
             .multilineTextAlignment(.leading)
             .frame(width: 90, height: 50)
         }
       }
-    }.padding(.vertical, 8)
+    }.padding(.vertical, 4)
   }
 }
 
 #Preview {
-  ZStack{
-    Color("BackgroundColor")
-      .ignoresSafeArea()
-    VStack{
-      MangaSubcategoryGridView(manga: Items.itemTest)
-    }
-  }
+  MangaItem(manga: Items.itemTest, lineLimit: 1)
 }

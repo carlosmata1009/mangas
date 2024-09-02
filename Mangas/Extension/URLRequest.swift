@@ -25,15 +25,24 @@ extension URLRequest{
 let api = URL(string: "https://mymanga-acacademy-5607149ebe3d.herokuapp.com/")!
 
 extension URL{
+  static let getAuthors = api.appending(path: "list/authors")
+  static let getThemeCategories = api.appending(path: "list/themes")
+  static let getDemographicCategories = api.appending(path:"list/demographics")
+  static let getGenreCategories = api.appending(path: "list/genres")
   
-  static func filterMangaByContains(word: String)-> URL{
-    return api.appending(path: "search/mangasContains/\(word)")
+  static func filterMangaByContains(word: String)async throws-> URL{
+    let query = "page=\(1)&per=\(1000)"
+    let url = "\(api)search/mangasContains/\(word)?/\(query)"
+    guard let url = URL(string: url) else{
+      throw URLError(.badURL)
+    }
+    return url
   }
   static func filterMangaByBegins(word: String)-> URL{
     return api.appending(path: "search/mangasBeginsWith/\(word)")
   }
   
-  static func getMangaByCategory(category: String, subCategory: String, page: Int?, per: Int?) async throws -> URL{
+  static func getMangasSubByCategory(category: String, subCategory: String, page: Int?, per: Int?) async throws -> URL{
     if let page = page, let per = per{
       let query = "page=\(page)&per=\(per)"
       let url = "\(api)list/mangaBy\(category)/\(subCategory)?\(query)"
@@ -49,11 +58,7 @@ extension URL{
       return url
     }
   }
-  static let getAuthors = api.appending(path: "list/authors")
-  static let getThemeCategories = api.appending(path: "list/themes")
-  static let getDemographicCategories = api.appending(path:"list/demographics")
-  static let getGenreCategories = api.appending(path: "list/genres")
-  static func getMangaList(page: Int? , per: Int? )async throws-> URL{
+  static func getMangaList(page: Int? , per: Int?)async throws-> URL{
     if let page = page, let per = per{
       let query = "page=\(page)&per=\(per)"
       let url = "\(api)list/mangas?\(query)"
@@ -80,65 +85,5 @@ extension URL{
       throw URLError(.badURL)
     }
     return url
-  }
-  static func getThemeMangaList(page: Int?, per: Int?)async throws-> URL{
-    if(page == nil && per == nil){
-      guard let url = URL(string: "\(api)list/mangaByTheme/school")else{
-        throw URLError(.badURL)
-      }
-      return url
-    }else{
-      let query = "page=\(page ?? 0)&per=\(per ?? 0)"
-      let url = "\(api)list/mangaByTheme/school?\(query)"
-      guard let url = URL(string: url) else{
-        throw URLError(.badURL)
-      }
-      return url
-    }
-  }
-  static func getGenreMangaList(page: Int?, per: Int?)async throws-> URL{
-    if(page == nil && per == nil){
-      guard let url = URL(string: "\(api)list/mangaByGenre/romance")else{
-        throw URLError(.badURL)
-      }
-      return url
-    }else{
-      let query = "page=\(page ?? 0)&per=\(per ?? 0)"
-      let url = "\(api)list/mangaByGenre/romance?\(query)"
-      guard let url = URL(string: url) else{
-        throw URLError(.badURL)
-      }
-      return url
-    }
-  }
-  static func getDemographicMangaList(page: Int?, per: Int?)async throws-> URL{
-    if(page == nil && per == nil){
-      guard let url = URL(string: "\(api)list/mangaByDemographic/Seinen")else{
-        throw URLError(.badURL)
-      }
-      return url
-    }else{
-      let query = "page=\(page ?? 0)&per=\(per ?? 0)"
-      let url = "\(api)list/mangaByDemographic/Seinen?\(query)"
-      guard let url = URL(string: url) else{
-        throw URLError(.badURL)
-      }
-      return url
-    }
-  }
-  static func getAuthorMangaList(page: Int?, per: Int?)async throws-> URL{
-    if(page == nil && per == nil){
-      guard let url = URL(string: "\(api)list/mangaByAuthor/998C1B16-E3DB-47D1-8157-8389B5345D03")else{
-        throw URLError(.badURL)
-      }
-      return url
-    }else{
-      let query = "page=\(page ?? 0)&per=\(per ?? 0)"
-      let url = "\(api)list/mangaByAuthor/998C1B16-E3DB-47D1-8157-8389B5345D03?\(query)"
-      guard let url = URL(string: url) else{
-        throw URLError(.badURL)
-      }
-      return url
-    }
   }
 }

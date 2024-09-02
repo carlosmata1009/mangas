@@ -22,10 +22,11 @@ struct SearchView: View {
                 NavigationLink{
                   MangaDetail( manga: manga)
                 }label:{
-                  MangaSubcategoryGridView(manga: manga)
+                  MangaItem(manga: manga, lineLimit: 1)
                 }
               }
             }
+
           }
           Spacer()
         }.padding()
@@ -36,19 +37,16 @@ struct SearchView: View {
                 Text("Begins with").tag(2)
               }.pickerStyle(.automatic)
             }
-            ToolbarItem(placement: .navigation) {
-              NavigationLink{
-                
-              }label:{
-                Text("Advanced Search")
-              }
-            }
           }
       }.searchable(text: $searchVM.searchText)
         .onChange(of: searchVM.searchText){
           Task{
             try await searchVM.search(word: searchVM.searchText)
           }
+        }
+        .onChange(of: searchVM.searchSelection){
+          searchVM.searchText = ""
+          searchVM.mangas = []
         }
     }
   }
